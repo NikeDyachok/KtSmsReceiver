@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">KtSmsReceiver</string>
+
+    <string name="main_start_service">Start</string>
+    <string name="main_stop_service">Stop</string>
+
+    <string name="main_service_is_online">Service is online</string>
+    <string name="main_service_is_offline">Service is offline</string>
+
+</resources>
