@@ -29,14 +29,19 @@ public class FtpHelper {
                     con.connect(InetAddress.getByName(HOST));
 
                     if (con.login(LOGIN, PASSWORD)) {
-                        con.enterLocalPassiveMode(); // important!
-                        con.setFileType(FTP.BINARY_FILE_TYPE);
+                        //con.enterLocalPassiveMode(); // important!
+                        //con.setFileType(FTP.BINARY_FILE_TYPE);
+
+                        //con.enterLocalPassiveMode();
+                        con.setFileType(FTP.BINARY_FILE_TYPE, FTP.BINARY_FILE_TYPE);
+                        con.setFileTransferMode(FTP.BINARY_FILE_TYPE);
+
 
                         String data = file_local_path + file_name;
 
                         FileInputStream in = new FileInputStream(new File(data));
 
-                        con.storeFile(REMOTE_PATH + file_name, in);
+                        Boolean sucsess = con.storeFile(REMOTE_PATH + file_name, in);
                         in.close();
                         con.logout();
                         con.disconnect();
